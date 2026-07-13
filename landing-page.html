@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebar — Beira do Rio Tocantins, Estreito/MA</title>
+<meta name="description" content="Facebar: bar, restaurante e eventos à beira do Rio Tocantins em Estreito, Maranhão. Buffet, churrasco, rodízio de pizza às quintas e o pôr do sol mais bonito da BR-153.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dusk:#4B2942;
+    --dusk-2:#603154;
+    --sunset:#E4602F;
+    --sunset-deep:#C9482A;
+    --gold:#F4B24A;
+    --blush:#F2957D;
+    --sand:#FBF1DE;
+    --sand-2:#F6E6C9;
+    --teal:#2F6E73;
+    --leaf:#4C8A5E;
+    --ink:#3E2A38;
+    --whats:#2AAE64;
+    --line: rgba(251,241,222,0.2);
+    --line-dark: rgba(62,42,56,0.14);
+    --shadow: 0 18px 40px rgba(50,20,20,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    letter-spacing:0;
+    margin:0;
+  }
+  .logo-text{text-transform:none !important;}
+  .tag{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.4rem;
+    color:var(--sunset-deep);
+    display:inline-block;
+    transform:rotate(-2deg);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;
+    font-family:'Work Sans',sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    letter-spacing:0.01em;
+    text-decoration:none;
+    border-radius:100px;
+    border:2px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--gold);color:var(--dusk);box-shadow:0 8px 20px rgba(244,178,74,0.4);}
+  .btn-ghost{border-color:var(--sand);color:var(--sand);}
+  .btn-ghost:hover{background:rgba(251,241,222,0.1);}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(75,41,66,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{font-family:'Baloo 2',sans-serif;font-weight:800;color:var(--sand);font-size:1.6rem;text-decoration:none;}
+  .brand span{color:var(--gold);}
+  .navlinks{display:flex;gap:32px;list-style:none;margin:0;padding:0;}
+  .navlinks a{color:var(--sand);text-decoration:none;font-size:0.9rem;font-weight:600;letter-spacing:0.02em;}
+  .navlinks a:hover{color:var(--gold);}
+  .navcta{display:flex;gap:12px;align-items:center;}
+  .burger{display:none;background:none;border:none;color:var(--sand);font-size:1.6rem;cursor:pointer;}
+  @media(max-width:860px){
+    .navlinks{
+      position:fixed;top:72px;left:0;right:0;background:var(--dusk);
+      flex-direction:column;padding:24px;gap:20px;
+      transform:translateY(-140%);transition:transform .3s ease;
+      border-bottom:1px solid var(--line);
+    }
+    .navlinks.open{transform:translateY(0);}
+    .navcta .btn-ghost{display:none;}
+    .burger{display:block;}
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:linear-gradient(180deg,#4B2942 0%, #8C3E45 40%, #E4602F 68%, #F4B24A 100%);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+  .hero-scene{position:absolute;inset:0;width:100%;height:100%;}
+  .hero-content{
+    position:relative;z-index:2;
+    padding:180px 24px 90px;
+    max-width:1120px;margin:0 auto;
+    width:100%;
+  }
+  .eyebrow{
+    font-family:'Caveat',cursive;font-weight:700;
+    color:var(--sand);font-size:1.5rem;
+    margin-bottom:6px;display:block;
+  }
+  .hero h1{
+    color:var(--sand);
+    font-size:clamp(3.4rem, 12vw, 8.5rem);
+    line-height:0.95;
+    text-shadow:0 6px 30px rgba(40,10,10,0.35);
+  }
+  .hero p.lede{
+    color:var(--sand);
+    max-width:540px;
+    font-size:1.15rem;
+    margin:22px 0 30px;
+    opacity:0.95;
+  }
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .pill{
+    background:rgba(251,241,222,0.16);
+    border:1px solid rgba(251,241,222,0.4);
+    color:var(--sand);
+    font-size:0.82rem;font-weight:600;
+    padding:7px 14px;border-radius:100px;
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:16px;}
+  .twinkle{animation:twinkle 3.2s ease-in-out infinite;}
+  .twinkle:nth-child(2n){animation-delay:0.7s;}
+  .twinkle:nth-child(3n){animation-delay:1.4s;}
+  .twinkle:nth-child(4n){animation-delay:2.1s;}
+  @keyframes twinkle{
+    0%,100%{opacity:0.4;}
+    50%{opacity:1;}
+  }
+  .drift{animation:drift 14s ease-in-out infinite;}
+  @keyframes drift{
+    0%,100%{transform:translateX(0);}
+    50%{transform:translateX(24px);}
+  }
+  .ripple{animation:ripple 4.5s ease-in-out infinite;}
+  @keyframes ripple{
+    0%,100%{opacity:0.5;transform:translateX(0);}
+    50%{opacity:0.9;transform:translateX(6px);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .twinkle,.drift,.ripple{animation:none;}
+  }
+
+  /* SECTIONS */
+  section{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head .tag{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(2.1rem,5vw,3.2rem);color:var(--dusk);}
+  .section-head p{margin-top:16px;font-size:1.05rem;color:var(--ink);opacity:0.85;}
+
+  /* WHY STRIP */
+  #porque{background:var(--sand-2);padding:44px 0;}
+  .why-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+  .why-item{display:flex;align-items:center;gap:12px;flex:1;min-width:200px;}
+  .why-icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--dusk);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+  }
+  .why-item b{display:block;font-size:0.95rem;}
+  .why-item span{font-size:0.82rem;opacity:0.7;}
+
+  /* ABOUT */
+  #sobre{background:var(--sand);}
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+  .about-copy p{font-size:1.05rem;margin:0 0 18px;}
+  .stat-row{display:flex;gap:36px;margin-top:28px;flex-wrap:wrap;}
+  .stat{border-left:3px solid var(--sunset);padding-left:14px;}
+  .stat b{font-family:'Baloo 2',sans-serif;font-size:2rem;display:block;color:var(--dusk);}
+  .stat span{font-size:0.85rem;opacity:0.75;}
+  .postcard{
+    background:var(--dusk);
+    border-radius:16px;
+    padding:8px;
+    box-shadow:var(--shadow);
+    transform:rotate(1.5deg);
+  }
+  .postcard-inner{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+
+  /* AGENDA / EVENTOS */
+  #agenda{
+    background:linear-gradient(135deg,var(--dusk),#7A3550 60%, var(--sunset-deep));
+    color:var(--sand);
+    position:relative;
+    overflow:hidden;
+  }
+  #agenda .section-head h2{color:var(--sand);}
+  #agenda .section-head p{color:var(--sand);opacity:0.85;}
+  .agenda-card{
+    display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;
+    background:rgba(251,241,222,0.08);
+    border:1px solid rgba(251,241,222,0.25);
+    border-radius:20px;
+    padding:36px;
+  }
+  @media(max-width:780px){.agenda-card{grid-template-columns:1fr;text-align:center;}}
+  .agenda-day{
+    font-family:'Caveat',cursive;font-weight:700;font-size:1.3rem;color:var(--gold);
+  }
+  .agenda-price{
+    background:var(--gold);color:var(--dusk);
+    border-radius:16px;padding:18px 22px;text-align:center;min-width:140px;
+  }
+  .agenda-price b{display:block;font-family:'Baloo 2',sans-serif;font-size:2.4rem;line-height:1;}
+  .agenda-price span{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+  .agenda-title{font-size:1.9rem;margin:6px 0 10px;color:var(--sand);}
+  .agenda-list{list-style:none;margin:0 0 14px;padding:0;font-size:0.95rem;opacity:0.9;}
+  .agenda-list li{padding:3px 0;}
+  .agenda-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+  @media(max-width:780px){.agenda-badges{justify-content:center;}}
+  .agenda-badge{
+    background:rgba(251,241,222,0.14);border:1px solid rgba(251,241,222,0.3);
+    padding:6px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;
+  }
+  .agenda-note{font-size:0.78rem;opacity:0.65;margin-top:18px;}
+
+  /* MENU */
+  #cardapio{
+    background:var(--sand);
+  }
+  .board-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:860px){.board-grid{grid-template-columns:1fr;}}
+  .board-card{
+    background:#fff;
+    border:1px solid var(--line-dark);
+    border-radius:14px;
+    padding:32px 26px;
+    position:relative;
+    box-shadow:0 8px 24px rgba(62,42,56,0.06);
+  }
+  .board-card h3{color:var(--dusk);font-size:1.4rem;margin:10px 0 12px;}
+  .board-card p{font-size:0.95rem;color:var(--ink);opacity:0.8;margin:0;}
+  .board-card.featured{
+    background:linear-gradient(160deg,#fff, var(--sand-2));
+    border-color:var(--gold);
+  }
+  .badge{
+    display:inline-block;background:var(--sunset);color:#fff;
+    font-size:0.7rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;
+    padding:5px 12px;border-radius:100px;margin-bottom:14px;
+  }
+  .badge.alt{background:var(--leaf);}
+  .num{
+    font-family:'Caveat',cursive;color:var(--sunset-deep);font-size:1.3rem;font-weight:700;
+  }
+
+  /* GALERIA */
+  #galeria{background:var(--sand-2);}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:160px;gap:14px;}
+  .gallery-grid div{grid-column:span 2;}
+  .gallery-grid div:nth-child(1){grid-row:span 2;}
+  .gallery-grid div:nth-child(4){grid-row:span 2;}
+  @media(max-width:700px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px;}
+    .gallery-grid div{grid-column:span 1 !important;grid-row:span 1 !important;}
+  }
+  .ph{
+    width:100%;height:100%;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(62,42,56,0.45);font-size:0.8rem;text-align:center;padding:10px;
+    border:1.5px dashed rgba(62,42,56,0.25);
+    font-weight:600;
+  }
+
+  /* AVALIACOES */
+  #avaliacoes{background:var(--dusk);color:var(--sand);}
+  #avaliacoes .section-head h2{color:var(--sand);}
+  #avaliacoes .section-head p{color:var(--sand);opacity:0.8;}
+  .review-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:860px){.review-strip{grid-template-columns:1fr;}}
+  .review{
+    background:rgba(251,241,222,0.07);
+    border:1px solid rgba(251,241,222,0.2);
+    border-radius:14px;padding:26px;
+  }
+  .stars{color:var(--gold);letter-spacing:2px;margin-bottom:12px;font-size:1.1rem;}
+  .review p{font-size:0.98rem;margin:0 0 14px;}
+  .review footer{font-size:0.82rem;opacity:0.7;font-weight:600;}
+  .trust-row{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap;align-items:center;}
+  .trust-row div{text-align:center;}
+  .trust-row b{font-family:'Baloo 2',sans-serif;font-size:2.1rem;display:block;}
+  .trust-row span{font-size:0.8rem;opacity:0.75;}
+
+  /* LOCALIZACAO */
+  #local{background:var(--sand);}
+  .local-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media(max-width:860px){.local-grid{grid-template-columns:1fr;}}
+  .info-list{list-style:none;margin:0;padding:0;}
+  .info-list li{
+    display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-dark);
+  }
+  .info-list li:first-child{padding-top:0;}
+  .info-list b{display:block;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;opacity:0.6;margin-bottom:4px;}
+  .icon{
+    flex-shrink:0;width:38px;height:38px;border-radius:50%;
+    background:var(--dusk);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .mapwrap{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:6px solid var(--dusk);}
+  .mapwrap iframe{width:100%;height:100%;min-height:380px;border:0;display:block;}
+
+  /* FOOTER + CTA FLUTUANTE */
+  footer{
+    background:var(--dusk);color:var(--sand);
+    padding:56px 0 28px;
+  }
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:24px;}
+  .foot-brand{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.8rem;}
+  .foot-social a{color:var(--sand);text-decoration:none;margin-left:18px;font-weight:600;font-size:0.9rem;opacity:0.85;}
+  .foot-social a:hover{color:var(--gold);}
+  .foot-bottom{font-size:0.8rem;opacity:0.55;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  .floating-whats{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    width:60px;height:60px;border-radius:50%;
+    background:var(--whats);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;text-decoration:none;
+    box-shadow:0 10px 26px rgba(0,0,0,0.28);
+    border:2px solid rgba(255,255,255,0.35);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand logo-text">facebar</a>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#sobre">A casa</a></li>
+      <li><a href="#agenda">Quinta do Rodízio</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#local">Como chegar</a></li>
+    </ul>
+    <div class="navcta">
+      <a href="#local" class="btn btn-ghost">Como chegar</a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-scene">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" style="width:100%;height:100%;position:absolute;inset:0;">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4B2942"/>
+          <stop offset="35%" stop-color="#8C3E45"/>
+          <stop offset="62%" stop-color="#E4602F"/>
+          <stop offset="100%" stop-color="#F4B24A"/>
+        </linearGradient>
+        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFF6E2"/>
+          <stop offset="55%" stop-color="#F4B24A"/>
+          <stop offset="100%" stop-color="#F4B24A" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C9482A"/>
+          <stop offset="100%" stop-color="#8C3E45"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1440" height="900" fill="url(#sky)"/>
+
+      <!-- sol grande de fim de tarde -->
+      <circle cx="1080" cy="470" r="190" fill="url(#sun)" opacity="0.95"/>
+      <circle cx="1080" cy="470" r="80" fill="#FFF6E2" opacity="0.95"/>
+
+      <!-- nuvens suaves -->
+      <g fill="#FBF1DE" opacity="0.18">
+        <ellipse class="drift" cx="260" cy="180" rx="120" ry="26"/>
+        <ellipse class="drift" cx="420" cy="150" rx="80" ry="18"/>
+        <ellipse class="drift" cx="1250" cy="120" rx="100" ry="22"/>
+      </g>
+
+      <!-- morro / mata longínqua -->
+      <path d="M0,540 Q200,495 420,530 T900,520 T1440,545 L1440,600 L0,600 Z" fill="#7A3550" opacity="0.55"/>
+
+      <!-- rio refletindo o pôr do sol -->
+      <rect x="0" y="560" width="1440" height="340" fill="url(#water)"/>
+      <g stroke="#F4B24A" stroke-opacity="0.45" stroke-width="3" fill="none">
+        <path class="ripple" d="M960,610 q40,8 80,0"/>
+        <path class="ripple" d="M1020,655 q50,10 100,0"/>
+        <path class="ripple" d="M900,705 q60,12 120,0"/>
+        <path class="ripple" d="M1000,760 q70,12 140,0"/>
+        <path class="ripple" d="M300,630 q45,9 90,0"/>
+        <path class="ripple" d="M180,700 q55,10 110,0"/>
+      </g>
+
+      <!-- pássaros -->
+      <g stroke="#FBF1DE" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6">
+        <path d="M180,200 q14,-14 28,0 q14,-14 28,0"/>
+        <path d="M260,240 q12,-12 24,0 q12,-12 24,0"/>
+        <path d="M1150,230 q12,-12 24,0 q12,-12 24,0"/>
+      </g>
+
+      <!-- deck do facebar com luzinhas de festa -->
+      <path d="M0,760 L1440,760 L1440,900 L0,900 Z" fill="#3A2130"/>
+      <rect x="0" y="742" width="1440" height="14" fill="#4B2942"/>
+      <g fill="#FBF1DE">
+        <circle class="twinkle" cx="60" cy="748" r="4"/>
+        <circle class="twinkle" cx="180" cy="748" r="4"/>
+        <circle class="twinkle" cx="300" cy="748" r="4"/>
+        <circle class="twinkle" cx="420" cy="748" r="4"/>
+        <circle class="twinkle" cx="540" cy="748" r="4"/>
+        <circle class="twinkle" cx="660" cy="748" r="4"/>
+        <circle class="twinkle" cx="780" cy="748" r="4"/>
+        <circle class="twinkle" cx="900" cy="748" r="4"/>
+        <circle class="twinkle" cx="1020" cy="748" r="4"/>
+        <circle class="twinkle" cx="1140" cy="748" r="4"/>
+        <circle class="twinkle" cx="1260" cy="748" r="4"/>
+        <circle class="twinkle" cx="1380" cy="748" r="4"/>
+      </g>
+      <g fill="#3A2130">
+        <rect x="70" y="748" width="8" height="60"/>
+        <rect x="430" y="748" width="8" height="60"/>
+        <rect x="900" y="748" width="8" height="60"/>
+        <rect x="1300" y="748" width="8" height="60"/>
+      </g>
+
+      <!-- família reunida na mesa do deck -->
+      <g transform="translate(560,800)" fill="#3A2130" opacity="0.85">
+        <rect x="-70" y="10" width="140" height="8" rx="4"/>
+        <rect x="-64" y="18" width="6" height="26"/>
+        <rect x="58" y="18" width="6" height="26"/>
+        <!-- adulto 1 -->
+        <circle cx="-40" cy="-14" r="11"/>
+        <path d="M-52,4 Q-40,-10 -28,4 L-30,26 L-50,26 Z"/>
+        <!-- adulto 2 -->
+        <circle cx="40" cy="-14" r="11"/>
+        <path d="M28,4 Q40,-10 52,4 L50,26 L30,26 Z"/>
+        <!-- crianca -->
+        <circle cx="2" cy="-2" r="8"/>
+        <path d="M-6,12 Q2,2 10,12 L9,26 L-5,26 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <span class="eyebrow">Estreito · Maranhão · Beira do Rio Tocantins</span>
+    <h1 class="logo-text">facebar</h1>
+    <p class="lede">Mesa na beira do rio, pôr do sol nos copos e a família inteira reunida</p>
+    <div class="pill-row">
+      <span class="pill">🍕 Rodízio às quintas</span>
+      <span class="pill">🎶 Música ao vivo</span>
+      <span class="pill">👨‍👩‍👧 Espaço kids</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://wa.me/5563991041792" target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
+      <a class="btn btn-ghost" href="#local">Ver localização</a>
+    </div>
+  </div>
+</section>
+
+<div id="porque">
+  <div class="wrap why-row">
+    <div class="why-item">
+      <div class="why-icon">🌅</div>
+      <div><b>Pôr do sol à beira-rio</b><span>a melhor vista de Estreito</span></div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">👨‍👩‍👧‍👦</div>
+      <div><b>Ambiente para toda a família</b><span>dos avós às crianças</span></div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🎉</div>
+      <div><b>Aniversariante não paga</b><span>na Quinta do Rodízio</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="tag">A casa</span>
+      <h2 style="font-size:2.4rem;color:var(--dusk);margin:8px 0 20px;">Rústico onde precisa, aconchegante onde importa</h2>
+      <p>O Facebar fica direto na margem do Rio Tocantins, num salão amplo e bem ventilado — estrutura de madeira com o conforto de uma casa recém-reformada. É parada certa de quem cruza a BR-153 entre o Maranhão e o Tocantins, e ponto de encontro de quem mora em Estreito.</p>
+      <p>Tem música ao vivo e chope gelado para quem quer curtir a noite, mas também tem espaço kids, mesas largas e cardápio farto para reunir a família inteira — do almoço de domingo ao aniversário do vovô.</p>
+      <div class="stat-row">
+        <div class="stat"><b>4,3★</b><span>Avaliação no Tripadvisor</span></div>
+        <div class="stat"><b>#1</b><span>Restaurante em Estreito no Tripadvisor</span></div>
+        <div class="stat"><b>100%</b><span>Vista para o Rio Tocantins</span></div>
+      </div>
+    </div>
+    <div class="postcard">
+      <div class="postcard-inner">
+        <svg viewBox="0 0 500 560" style="width:100%;display:block;">
+          <defs>
+            <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#603154"/>
+              <stop offset="45%" stop-color="#C9482A"/>
+              <stop offset="100%" stop-color="#F4B24A"/>
+            </linearGradient>
+          </defs>
+          <rect width="500" height="560" fill="url(#sky2)"/>
+          <rect y="380" width="500" height="180" fill="#8C3E45"/>
+          <path d="M0,300 Q120,265 250,295 T500,300 L500,380 L0,380 Z" fill="#7A3550" opacity="0.6"/>
+          <circle cx="380" cy="180" r="90" fill="#F4B24A" opacity="0.9"/>
+          <circle cx="380" cy="180" r="42" fill="#FFF6E2"/>
+          <g stroke="#F4B24A" stroke-opacity="0.5" stroke-width="3" fill="none">
+            <path d="M120,420 q50,10 100,0"/>
+            <path d="M260,470 q60,12 120,0"/>
+            <path d="M80,510 q60,10 120,0"/>
+          </g>
+          <g stroke="#FBF1DE" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6">
+            <path d="M80,80 q10,-10 20,0 q10,-10 20,0"/>
+            <path d="M150,120 q9,-9 18,0 q9,-9 18,0"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agenda">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Toda semana tem</span>
+      <h2>Quinta é dia de rodízio</h2>
+      <p>Um clássico do Facebar: pizza à vontade, música ao vivo e mesa cheia — de amigos e de família.</p>
+    </div>
+    <div class="agenda-card">
+      <div class="agenda-price"><b>44,90</b><span>por pessoa</span></div>
+      <div>
+        <span class="agenda-day">Toda quinta-feira</span>
+        <h3 class="agenda-title">Quinta do Rodízio</h3>
+        <ul class="agenda-list">
+          <li>🍕 Rodízio de pizzas, massas, risotos e petiscos</li>
+          <li>🎂 Aniversariante não paga — informe-se e participe</li>
+          <li>🎸 Acústico ao vivo</li>
+        </ul>
+        <div class="agenda-badges">
+          <span class="agenda-badge">Bar · Restaurante · Eventos</span>
+          <span class="agenda-badge">Beira Rio · Estreito-MA</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5563991041792" target="_blank" rel="noopener">Garantir mesa</a>
+    </div>
+    <p class="agenda-note">Preço e atrações sujeitos a alteração — confirme a programação da semana no Instagram @facebarestreito.</p>
+  </div>
+</section>
+
+<section id="cardapio">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">O que pedir</span>
+      <h2>Fartura de buffet, brasa e pizza</h2>
+      <p>Cardápio pensado para quem chega com fome de estrada — e para a mesa grande de família que quer ficar a tarde inteira.</p>
+    </div>
+    <div class="board-grid">
+      <div class="board-card featured">
+        <span class="badge">Prato da casa</span>
+        <h3>Tucunaré frito inteiro</h3>
+        <p>O peixe de água doce servido inteiro e crocante — o prato mais pedido por quem visita Estreito e volta só por causa dele.</p>
+      </div>
+      <div class="board-card">
+        <span class="num">Almoço</span>
+        <h3>Buffet & churrasco</h3>
+        <p>Self-service completo com churrasco na brasa todos os dias de almoço — carnes, guarnições e saladas à vontade.</p>
+      </div>
+      <div class="board-card">
+        <span class="num">Toda quinta</span>
+        <h3>Rodízio de pizza</h3>
+        <p>Pizzas, massas, risotos e petiscos à vontade por R$44,90 — o programa da semana em Estreito.</p>
+      </div>
+      <div class="board-card">
+        <span class="num">Sempre gelado</span>
+        <h3>Chope & cerveja</h3>
+        <p>A temperatura certa é tradição por aqui — bebida sempre bem gelada do começo ao fim da tarde.</p>
+      </div>
+      <div class="board-card">
+        <span class="badge alt">Para a família</span>
+        <h3>Espaço kids</h3>
+        <p>Área reservada para as crianças brincarem enquanto os adultos aproveitam a vista e a conversa.</p>
+      </div>
+      <div class="board-card">
+        <span class="num">Para grupos</span>
+        <h3>Aniversários & eventos</h3>
+        <p>Salão amplo à beira do rio, ideal para aniversários, confraternizações e encontros de família — aniversariante não paga na Quinta do Rodízio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Um gostinho da casa</span>
+      <h2>Galeria</h2>
+      <p>Espaço reservado para as fotos reais do salão, do pôr do sol e dos pratos — é só substituir por fotos do proprietário para deixar a página 100% autêntica.</p>
+    </div>
+    <div class="gallery-grid">
+      <div><div class="ph" style="background:#C9482A;color:#FBF1DE;">Foto: pôr do sol no rio</div></div>
+      <div><div class="ph" style="background:#F6E6C9;">Foto: tucunaré frito</div></div>
+      <div><div class="ph" style="background:#8C3E45;color:#FBF1DE;">Foto: salão / buffet</div></div>
+      <div><div class="ph" style="background:#F4B24A;color:#3E2A38;">Foto: rodízio de pizza</div></div>
+      <div><div class="ph" style="background:#F6E6C9;">Foto: família reunida</div></div>
+      <div><div class="ph" style="background:#603154;color:#FBF1DE;">Foto: música ao vivo</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="avaliacoes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Quem já foi conta</span>
+      <h2>A opinião de quem sentou à mesa</h2>
+      <p>Um resumo do que visitantes e moradores comentam nas avaliações públicas do restaurante.</p>
+    </div>
+    <div class="review-strip">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Ambiente tranquilo e acolhedor bem na margem do Rio Tocantins, com pratos generosos e cerveja sempre gelada — ótimo para ir com a família inteira.</p>
+        <footer>— avaliação no Tripadvisor</footer>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>Espaço amplo, ventilado e com uma vista linda do rio; cardápio variado e farto, preço justo — ótimo para levar a família e comemorar junto.</p>
+        <footer>— avaliação no Tripadvisor</footer>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Comida muito boa e funcionários simpáticos; o tucunaré frito inteiro é imperdível para quem está de passagem por Estreito.</p>
+        <footer>— avaliação no Tripadvisor</footer>
+      </div>
+    </div>
+    <div class="trust-row">
+      <div><b>4,3★</b><span>Tripadvisor</span></div>
+      <div><b>#1</b><span>de 10 restaurantes em Estreito</span></div>
+      <div><b>4,5★</b><span>Agregadores de cardápio</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="local">
+  <div class="wrap local-grid">
+    <div>
+      <span class="tag">Como chegar</span>
+      <h2 style="font-size:2.2rem;color:var(--dusk);margin:8px 0 24px;">Direto na beira do rio</h2>
+      <ul class="info-list">
+        <li>
+          <div class="icon">📍</div>
+          <div><b>Endereço</b>R. Ilha Cabral, Estreito – MA, 65975-000</div>
+        </li>
+        <li>
+          <div class="icon">📞</div>
+          <div><b>WhatsApp / telefone</b><a href="https://wa.me/5563991041792">(63) 99104-1792</a> — confirme o número atual com o proprietário antes de publicar</div>
+        </li>
+        <li>
+          <div class="icon">🕒</div>
+          <div><b>Horário</b>Almoço com buffet e churrasco todos os dias; quinta-feira é dia de rodízio de pizza com música ao vivo. Confirme horários exatos pelo WhatsApp.</div>
+        </li>
+        <li>
+          <div class="icon">📷</div>
+          <div><b>Instagram</b><a href="https://www.instagram.com/facebarestreito/" target="_blank" rel="noopener">@facebarestreito</a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="mapwrap">
+      <iframe
+        src="https://www.google.com/maps?q=R.+Ilha+Cabral,+Estreito+-+MA,+65975-000&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa Facebar Estreito"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand logo-text">facebar</div>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/facebarestreito/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/5563991041792" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.tripadvisor.com.br/Restaurant_Review-g2347209-d16843556-Reviews-Facebar-Estreito_State_of_Maranhao.html" target="_blank" rel="noopener">Tripadvisor</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Facebar · Bar, Restaurante e Eventos · R. Ilha Cabral, Estreito – MA</span>
+      <span>Site desenvolvido por BuritiLab</span>
+    </div>
+  </div>
+</footer>
+
+<a class="floating-whats" href="https://wa.me/5563991041792" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">💬</a>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
